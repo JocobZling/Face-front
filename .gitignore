@@ -3,4 +3,5 @@ build
 package-lock.json
 .history
 .idea/
+debug.log
 node_modules/
