@@ -1,22 +1,30 @@
-import {Form, Input, Button, Checkbox, Col, Typography} from 'antd';
-import React from 'react';
-import styled from 'styled-components'
+import {Form, Input, Button, Col, Typography} from 'antd';
+import React from 'react'
+import {connect} from 'react-redux'
+import {actions as userActions} from '../ducks/user'
+import {withRouter} from 'react-router-dom'
+import '../css/form.css'
 
 const {Title} = Typography;
 
-
 const layout = {
-    labelCol: {span: 13},
-    wrapperCol: {span: 5, offset: 1},
+    labelCol: {span: 9},
+    wrapperCol: {span: 9, offset: 1},
 };
-const tailLayout = {
-    wrapperCol: {offset: 16, span: 16},
-};
-const style = {padding: '10px 0'};
 
-const LoginForm = () => {
+const tailLayout = {
+    wrapperCol: {offset: 7, span: 12},
+};
+
+const style = {
+    padding: '10px 0',
+    color: 'white'
+};
+
+
+const LoginForm = ({login}) => {
     const onFinish = values => {
-        console.log('Success:', values);
+        login(values)
     };
 
     const onFinishFailed = errorInfo => {
@@ -24,17 +32,19 @@ const LoginForm = () => {
     };
 
     return (
-
         <Form
             {...layout}
             name="basic"
             initialValues={{remember: true}}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
-            style={{marginTop: '220px'}}
+            style={{
+                padding: '20px 0',
+                backgroundColor: 'rgba(35,31,31,0.55)',
+            }}
         >
-            <Col offset={14} style={{marginBottom:'65px'}}>
-                <Title>生成人脸检测系统</Title>
+            <Col offset={7} style={{marginBottom: '5vh'}}>
+                <Title style={{color: 'white'}}>生成人脸检测系统</Title>
             </Col>
             <Form.Item
                 label="用户名"
@@ -56,7 +66,7 @@ const LoginForm = () => {
 
 
             <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit" shape={'round'} style={{width:'80px'}}>
+                <Button type="primary" htmlType="submit"  style={{width: '100%',backgroundColor:'black',borderColor:'black'}} >
                     登录
                 </Button>
             </Form.Item>
@@ -64,6 +74,9 @@ const LoginForm = () => {
 
     );
 };
+const mapDispatchToProps = dispatch => ({
+    login: (data) => dispatch(userActions.login(data)),
+});
 
-export default LoginForm
+export default connect(null, mapDispatchToProps)(withRouter(LoginForm))
 

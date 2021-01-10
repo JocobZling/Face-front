@@ -6,24 +6,23 @@ import LoginForm from "./LoginForm";
 
 const {Content, Sider} = Layout;
 
-const WelcomeImage = styled('img')`
-    width:100%
+const LoginPage = styled('div')`
+    height:100vh;
+    background: url(${img});
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-origin:content-box;
 `
-
+const FormContainer = styled('div')`
+    color:white;
+    padding:27vh 60vh;
+`
 const LoginContainer = () => (
-    <Layout>
-        <Sider style={{
-            overflow: 'auto',
-            height: '100vh',
-            position: 'fixed',
-            left: 0,
-        }} width={"40%"}> <WelcomeImage src={img} height={'100%'} alt={'login'}/> </Sider>
-        <Content style={{
-            height: '100vh',
-        }}>
+    <LoginPage>
+        <FormContainer>
             <LoginForm/>
-        </Content>
-    </Layout>
-)
+        </FormContainer>
+    </LoginPage>
 
+)
 export default LoginContainer;

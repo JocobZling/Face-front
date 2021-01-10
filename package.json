@@ -2,6 +2,7 @@
   "name": "face-front",
   "version": "1.0.0",
   "dependencies": {
+    "@ant-design/icons": "^4.3.0",
     "antd": "^4.6.6",
     "moment": "^2.29.0",
     "react": "^16.13.1",
@@ -14,7 +15,7 @@
     "styled-components": "^5.2.0"
   },
   "homepage": "./",
-  "proxy": "http://localhost:8080",
+  "proxy": "http://119.45.17.239:8001",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
