@@ -25,6 +25,7 @@ export const actions = {
                     window.localStorage.setItem("id", res.body.data.id);
                     window.localStorage.setItem("userName", res.body.data.username);
                     message.success("登录成功！");
+                    window.location.href = '/';
                     dispatch(appActions.finishFetch());
                 }
             })();
@@ -34,6 +35,7 @@ export const actions = {
         return dispatch => {
             (async () => {
                 dispatch(appActions.startFetch());
+                debugger;
                 const res = await request.postWithBody('./user/registOrLogin', data);
                 if (res.status === HTTP_CODE.OK) {
                     message.success("注册成功！");

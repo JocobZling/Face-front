@@ -44,6 +44,7 @@ class FaceLayout extends React.Component {
                        style={{
                            overflow: 'auto',
                            left: 0,
+                           minHeight:'100vh'
                        }}>
                     <Logo>
                         <img src={img} alt={'logo'} className="logo"/>
