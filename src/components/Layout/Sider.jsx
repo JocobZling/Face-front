@@ -4,15 +4,16 @@ import {Link} from 'react-router-dom';
 import {
     HeartOutlined,
     UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
+    CalendarOutlined,
+    MonitorOutlined,
+    UnorderedListOutlined
 } from '@ant-design/icons';
 import '../../css/index.css'
 
 const {SubMenu} = Menu;
 
 const LeftMenu = () => (
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={['/index']}>
+    <Menu theme="dark" mode="inline" selectedKeys={`/${window.location.hash.split('#')[1].split('/')[1]}`}>
         <Menu.Item key="/index" icon={<HeartOutlined/>}>
             <Link to={'/index'}>欢迎</Link>
         </Menu.Item>
@@ -24,12 +25,19 @@ const LeftMenu = () => (
                 <Link to={'/password'}>帐号安全管理</Link>
             </Menu.Item>
         </SubMenu>
-        <Menu.Item key="/detection" icon={<VideoCameraOutlined/>}>
-            <Link to={'/detection'}>人脸图片检测</Link>
+        <Menu.Item key="/faceDetection" icon={<MonitorOutlined/>}>
+            <Link to={'/faceDetection'}>生成人脸检测</Link>
         </Menu.Item>
-        <Menu.Item key="/history" icon={<UploadOutlined/>}>
-            <Link to={'/history'}>近期历史记录</Link>
+        <Menu.Item key="/faceHistory" icon={<UnorderedListOutlined/>}>
+            <Link to={'/faceHistory'}>生成人脸检测历史记录</Link>
         </Menu.Item>
+        <Menu.Item key="/copyMoveDetection" icon={<CalendarOutlined/>}>
+            <Link to={'/copyMoveDetection'}>复制粘贴检测</Link>
+        </Menu.Item>
+        <Menu.Item key="/copyMoveHistory" icon={<UnorderedListOutlined/>}>
+            <Link to={'/copyMoveHistory'}>复制粘贴检测历史记录</Link>
+        </Menu.Item>
+
     </Menu>
 )
 

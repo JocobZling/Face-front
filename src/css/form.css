@@ -1,3 +1,12 @@
 .ant-form-item-label > label {
     color: white;
 }
+
+.register .ant-form-item-label > label {
+    color: black !important;
+}
+
+.register-model .ant-btn-primary {
+    color: white;
+    background-color: black;
+}

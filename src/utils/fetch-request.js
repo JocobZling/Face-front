@@ -24,7 +24,7 @@ export const get = async (url) => {
             credentials: 'include',
             headers: new Headers({
                 'Accept': 'application/json;charset=utf-8',
-                id:getHeaderFromLocalStorage('id'),
+                id: getHeaderFromLocalStorage('id'),
                 token: getHeaderFromLocalStorage('jwt'),
                 sessionId: getHeaderFromLocalStorage('sessionId')
             })
@@ -48,7 +48,7 @@ export const del = async (url) => {
             credentials: 'include',
             headers: new Headers({
                 'Accept': 'application/json;charset=utf-8',
-                id:getHeaderFromLocalStorage('id'),
+                id: getHeaderFromLocalStorage('id'),
                 token: getHeaderFromLocalStorage('jwt'),
                 sessionId: getHeaderFromLocalStorage('sessionId')
             })
@@ -69,7 +69,7 @@ export const post = async (url, data) => {
             headers: new Headers({
                 'Content-Type': 'application/json;charset=utf-8',
                 'Accept': 'application/json',
-                id:getHeaderFromLocalStorage('id'),
+                id: getHeaderFromLocalStorage('id'),
                 token: getHeaderFromLocalStorage('jwt'),
                 sessionId: getHeaderFromLocalStorage('sessionId')
             }),
@@ -87,28 +87,28 @@ export const post = async (url, data) => {
 }
 
 export const postWithBody = async (url, data) => {
-  try {
-    const res = await fetch(url, {
-      method: HTTP_METHOD.POST,
-      credentials: 'include',
-      headers: new Headers({
-        'Content-Type': 'application/json;charset=utf-8',
-        'Accept': 'application/json',
-        id:getHeaderFromLocalStorage('id'),
-        token: getHeaderFromLocalStorage('jwt'),
-        sessionId: getHeaderFromLocalStorage('sessionId')
-      }),
-      body: JSON.stringify(data)
-    });
-    if (!res.ok) {
-      return errHandler(res)
+    try {
+        const res = await fetch(url, {
+            method: HTTP_METHOD.POST,
+            credentials: 'include',
+            headers: new Headers({
+                'Content-Type': 'application/json;charset=utf-8',
+                'Accept': 'application/json',
+                id: getHeaderFromLocalStorage('id'),
+                token: getHeaderFromLocalStorage('jwt'),
+                sessionId: getHeaderFromLocalStorage('sessionId')
+            }),
+            body: JSON.stringify(data)
+        });
+        if (!res.ok) {
+            return errHandler(res)
+        }
+        const {status} = res;
+        const body = await res.json();
+        return Object.assign({file: {status: 'done'}}, {body}, {status})
+    } catch (ex) {
+        return {status: ex.status}
     }
-    const {status} = res;
-    const body = await res.json()
-    return Object.assign({}, {body}, {status})
-  } catch (ex) {
-    return {status: ex.status}
-  }
 }
 export const update = async (url, data) => {
     try {
@@ -118,7 +118,7 @@ export const update = async (url, data) => {
             headers: new Headers({
                 'Content-Type': 'application/json;charset=utf-8',
                 'Accept': 'application/json',
-                id:getHeaderFromLocalStorage('id'),
+                id: getHeaderFromLocalStorage('id'),
                 token: getHeaderFromLocalStorage('jwt'),
                 sessionId: getHeaderFromLocalStorage('sessionId')
             }),
@@ -143,7 +143,7 @@ export const updateThenHasBody = async (url, data) => {
             headers: new Headers({
                 'Content-Type': 'application/json;charset=utf-8',
                 'Accept': 'application/json',
-                id:getHeaderFromLocalStorage('id'),
+                id: getHeaderFromLocalStorage('id'),
                 token: getHeaderFromLocalStorage('jwt'),
                 sessionId: getHeaderFromLocalStorage('sessionId')
             }),
