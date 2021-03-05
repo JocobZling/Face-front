@@ -114,8 +114,8 @@ const LoginForm = ({login,register}) => {
                 backgroundColor: 'rgba(35,31,31,0.55)',
             }}
         >
-            <Col offset={7} style={{marginBottom: '5vh'}}>
-                <Title style={{color: 'white'}}>生成人脸检测系统</Title>
+            <Col offset={8} style={{marginBottom: '5vh'}}>
+                <Title style={{color: 'white'}}>图像取证系统</Title>
             </Col>
             <Form.Item
                 label="用户名"
