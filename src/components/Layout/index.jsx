@@ -48,7 +48,7 @@ class FaceLayout extends React.Component {
                        }}>
                     <Logo>
                         <img src={img} alt={'logo'} className="logo"/>
-                        <div>人脸检测系统</div>
+                        <div>图像取证系统</div>
                     </Logo>
                     <LeftMenu/>
                 </Sider>
