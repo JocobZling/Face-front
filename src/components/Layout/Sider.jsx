@@ -17,14 +17,14 @@ const LeftMenu = () => (
         <Menu.Item key="/index" icon={<HeartOutlined/>}>
             <Link to={'/index'}>欢迎</Link>
         </Menu.Item>
-        <SubMenu key="sub1" icon={<UserOutlined/>} title="个人帐号管理">
-            <Menu.Item key="/profile">
-                <Link to={'/profile'}>个人信息管理</Link>
-            </Menu.Item>
-            <Menu.Item key="/password">
-                <Link to={'/password'}>帐号安全管理</Link>
-            </Menu.Item>
-        </SubMenu>
+        {/*<SubMenu key="sub1" icon={<UserOutlined/>} title="个人帐号管理">*/}
+        {/*    <Menu.Item key="/profile">*/}
+        {/*        <Link to={'/profile'}>个人信息管理</Link>*/}
+        {/*    </Menu.Item>*/}
+        {/*    <Menu.Item key="/password">*/}
+        {/*        <Link to={'/password'}>帐号安全管理</Link>*/}
+        {/*    </Menu.Item>*/}
+        {/*</SubMenu>*/}
         <Menu.Item key="/faceDetection" icon={<MonitorOutlined/>}>
             <Link to={'/faceDetection'}>生成人脸检测</Link>
         </Menu.Item>
